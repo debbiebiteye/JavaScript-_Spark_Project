@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+        <html>
+     
+        <head>
+            <meta charset="ISO-8859-1">
+                <title>Home</title>
+     
+                <link rel= "stylesheet" type="text/css" href="./Spark_Login.css">
+                <script src="Spark_Login.js"></script>
+                <style>
+                    h2{
+                        color: whitesmoke;
+                    }
+                </style>
+            </head>
+     
+            <body>
+                <div class="navbar">
+                    <nav>
+                        <ul>
+                            <a style= "text-decoration: none;" href="Spark_Index.html"><li>Home</li></a>
+                            <a style= "text-decoration: none;" onclick="alert('you can not access these until you log in')"><li>About Me</li></a>
+                            <a style= "text-decoration: none;" onclick="alert('you can not access these until you log in')"><li>Recipes</li></a>
+                            <a style= "text-decoration: none;" onclick="alert('you can not access these until you log in')"><li>Contact</li></a>
+                        </ul>
+                    </nav>
+                </div>
+                <br>
+   
+
+     <div id="box">
+     <form class="loginclass" method="post" name="myform">
+         <h2 style= "margin-top:30px;">Sign On</h2>
+        <label>User Name :</label><br/>
+        <input type="text" placeholder="Enter username" name="username" id="username"/><br/>
+        <label>Password :</label><br/>
+        <input type="password" placeholder="Enter Password" name="password" id="password"/><br/>
+        <input style= "margin:45px;" type="button" value="Login" id="submit" onclick="getJSON()"/>
+        </form>
+    </div>
+                  
+           
+     
+            </body>
+            </html>

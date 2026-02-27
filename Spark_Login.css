@@ -1,0 +1,94 @@
+ .loginclass {  
+  
+ line-height: 180%;
+ border:2px solid white;
+ border-radius: 8px;
+ background-color: rgba(128, 128, 128, 0.445);
+ float:center;
+ width: 300px;
+ top:30%;
+ left: 37%;
+ height: 300px;
+ position: absolute;
+ font-family: verdana;
+ }
+ 
+ 
+ #headid{
+    position: absolute;
+    left:38.5%;
+    text-align: center;
+    color: whitesmoke;
+    font-family: Verdana;
+ }
+
+ 
+ #box {
+    text-align: center;
+    top: 20px;
+    left: 30px;
+    right: 40px;
+    bottom: 60px;
+    padding: 50px;
+    font-size: 18px;
+    font-family: verdana;
+
+ 
+ }
+ 
+ .navbar{
+    text-align:  center;
+    color: whitesmoke;
+    font-family: Verdana;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0;
+    border: none;
+    background: none;
+ }
+ li {
+    display: inline;
+    text-align: center;
+    color:whitesmoke;
+    padding: 10px;
+    margin: 10px;
+ }
+ body {
+    
+    background-image: url("recipe.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+   margin: 0;
+    }
+
+ #registerid{
+    text-align: center;
+    padding: 0px;
+    font-family: Verdana;
+    color: whitesmoke;
+ }
+ #myOnlyDiv{
+    border: 2px solid aliceblue;
+    position: absolute;
+    padding: 40px;
+    top:20%;
+    height: 300px;
+    width: 50%;
+    left: 28%;
+    font-family: Verdana;
+    font-size: 18px;
+ }
+#flashCards{
+    border: 2px solid aliceblue;
+    border-radius: 8px;
+    position: relative;
+    padding: 25px;
+    font-family: Verdana;
+    font-size: 18px;
+    top:10%;
+    left:20%;
+    height:190px;
+    width: 55%;
+    text-align: center;
+    
+}

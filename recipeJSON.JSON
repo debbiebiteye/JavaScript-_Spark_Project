@@ -1,0 +1,53 @@
+{"jsonRecipe": [
+    {
+      "name": "Strawberry smoothie",
+      "recipe": "In a blender combine strawberries, milk, yogurt, sugar and vanilla. Toss in the ice. Blend until smooth and creamy. Pour into glasses and serve.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQcthHa-mSo4VGvRt47fxGJZVgG2fruFTMGVk9EJ1jssQ0AHG2BQ"
+    },
+    {
+      "name": "Strawberry-Banana",
+      "recipe": " Blend 1 banana, 1 cup strawberries, 1/2 cup each vanilla yogurt and milk, 2 teaspoons honey, a pinch of cinnamon and 1 cup ice.",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCBue_sTMYpNCkdi-e-CypyEaO8gFbHkU0S1z8Htz_PwZaf8c8"
+    },
+    {
+      "name": "Strawberry Short Cake",
+      "recipe": " Blend 2 cups strawberries, 1 cup crumbled pound cake, 1 1/2 cups each milk and ice, and sugar to taste. Top with whipped cream and more strawberries.",
+      "image":"https://iowagirleats-iowagirleats.netdna-ssl.com/wp-content/uploads/2015/04/Strawberry-Shortcake-Smoothie-iowagirleats-01.jpg"
+    },
+    {
+      "name": "Triple-Berry Blend ",
+      "recipe":"1 1/2 cups mixed blackberries, strawberries and raspberries with 1 cup each milk and ice, and sugar to taste.",
+      "image": "https://feelgoodfoodie.net/wp-content/uploads/2016/10/Healthy-Triple-Berry-Smoothie-1-400x600.jpg"
+    },
+    {
+      "name": "Raspberry-Orange",
+      "recipe": "Blend 1 cup each orange juice and raspberries, 1/2 cup plain yogurt, 1 cup ice, and sugar to taste.",
+      "image":"http://walkingoffpounds.com/wp-content/uploads/2017/08/orange-slice-berry-smoothie-300x225.jpg"
+    },
+    {
+      "name": "Peach-Mango-Banana",
+      "recipe": "Blend 1 cup each chopped fresh or frozen peaches and mango, 1 cup each plain yogurt and ice, 1/2 banana, and sugar to taste.",
+      "image": "https://www.dinneratthezoo.com/wp-content/uploads/2018/05/peach-smoothie-4.jpg"
+    },
+    {
+      "name": "Honeydew-Almond",
+      "recipe": "Blend 2 cups chopped honeydew melon, 1 cup each almond milk and ice, and honey to taste.",
+        "image":"https://greenblender.com/smoothies/wp-content/uploads/2015/06/Almond-Honeydew-Avocado-2-960x540.jpg"
+    },
+    {
+      "name": "Cantaloupe",
+      "recipe": "Blend 2 cups chopped cantaloupe, the juice of 1/2 lime, 3 tablespoons sugar, 1/2 cup water and 1 cup ice.",
+      "image":  "https://cdn.shopify.com/s/files/1/2182/0257/articles/Canteloupe-Veggie-Juice-Main-2_39470717-6b8d-4b73-aa64-4dbaff53a8c4.jpg"
+    },
+    {
+      "name": "Carrot-Apple",
+      "recipe": "Blend 1 cup each carrot juice and apple juice with 1 1/2 cups ice.",
+      "image": "http://www.alexalane.com/wp-content/uploads/2014/04/juice-small.jpg"
+    },
+    {
+      "name": "Spa Cucumber",
+      "recipe": "Peel, seed and chop 2 medium cucumbers. Blend with the juice of 1 lime, 1/2 cup water, 1 cup ice and 3 to 4 tablespoons sugar or honey.",
+      "image": "https://i.pinimg.com/originals/4f/d9/d7/4fd9d73c53bb0b137f6a94e319b6c311.jpg"
+    }
+  ]
+}
