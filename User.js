@@ -1,35 +1,56 @@
-//this function is for getting information of the account user
-function getJSON() {
-    
-    //STEP 1 (to create an AJAX request)
-    //this object allows you to make requests and get back data.
-    // In short, this is our data retriever (it calls API)
-    let xhttp = new XMLHttpRequest();
+const welcomeMessage = document.getElementById('welcomeMessage');
 
-    //STEP 2 (to create an AJAX request)
-    xhttp.onreadystatechange = function () {
+window.onload = async function () {
+    await loadCurrentUser();
+};
 
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            //changing the information into something js can
-            //  understand
-            jsonAccount = JSON.parse(xhttp.responseText);
-
-            if(document.getElementById("myOnlyDiv").value)
-                document.getElementById("myOnlyDiv").innerHTML ="";
-            else document.getElementById("myOnlyDiv").innerHTML = jsonAccount[1].info;
-
-         }
+async function loadCurrentUser() {
+    if (!welcomeMessage) {
+        return;
     }
 
+    try {
+        const response = await fetch('/api/me', { cache: 'no-store' });
+        const payload = await response.json();
 
+        if (!response.ok) {
+            welcomeMessage.textContent = 'Welcome!';
+            return;
+        }
 
-  //STEP 3 (to create an AJAX request)
-    //create a connection
-    //open(http method, url)
-    xhttp.open("GET", 'https://api.myjson.com/bins/asjm8');
-
-    //STEP 4 (to create an AJAX request)
-    //this brings the request process to retrieve information
-    xhttp.send();
+        welcomeMessage.textContent = `Welcome, ${payload.username}!`;
+    } catch (error) {
+        console.error(error);
+        welcomeMessage.textContent = 'Welcome!';
+    }
 }
 
+// This function gets the signed-in user's profile information.
+async function getJSON() {
+    const profileDiv = document.getElementById('myOnlyDiv');
+
+    try {
+        const response = await fetch('/api/me', { cache: 'no-store' });
+        const payload = await response.json();
+
+        if (!response.ok) {
+            profileDiv.innerHTML = payload.message || 'Unable to load profile information right now.';
+            return;
+        }
+
+        profileDiv.innerHTML = profileDiv.innerHTML ? '' : payload.info;
+    } catch (error) {
+        console.error(error);
+        profileDiv.innerHTML = 'Unable to load profile information right now.';
+    }
+}
+
+async function logout() {
+    try {
+        await fetch('/api/logout', { method: 'POST' });
+    } catch (error) {
+        console.error(error);
+    }
+
+    window.location.href = 'Spark_Login.html';
+}

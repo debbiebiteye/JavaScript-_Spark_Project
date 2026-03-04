@@ -1,100 +1,87 @@
-window.onload=function(){
-    document.getElementById("nextButton").addEventListener("click", smoothie)
-    flashCards.innerHTML="Click to Start"
+const flashCards = document.getElementById('flashCards');
+const nextButton = document.getElementById('nextButton');
+const welcomeMessage = document.getElementById('welcomeMessage');
+
+let recipes = [];
+let index = 0;
+let showingRecipe = false;
+
+window.onload = async function () {
+    flashCards.innerHTML = 'Click to Start';
+    nextButton.addEventListener('click', showNextCard);
+    await Promise.all([loadCurrentUser(), loadRecipes()]);
+};
+
+async function loadCurrentUser() {
+    try {
+        const response = await fetch('/api/me', { cache: 'no-store' });
+        const payload = await response.json();
+
+        if (!response.ok) {
+            welcomeMessage.textContent = 'Welcome!';
+            return;
+        }
+
+        welcomeMessage.textContent = `Welcome, ${payload.username}!`;
+    } catch (error) {
+        console.error(error);
+        welcomeMessage.textContent = 'Welcome!';
+    }
 }
-//global variable for keeping indices
-let index=0;
-let recipeCounter=0;
-let flashCards= document.getElementById("flashCards");
 
-//this function sorts through the recipe side of the smoothies
-function smoothie() {
-    document.getElementById("nextButton").removeEventListener("click", smoothie)
-   document.getElementById("nextButton").addEventListener("click", ingredients)
-   
+async function loadRecipes() {
+    try {
+        const response = await fetch('/api/recipes', { cache: 'no-store' });
+        const payload = await response.json();
 
-    
+        if (!response.ok) {
+            flashCards.innerHTML = payload.message || 'Unable to load recipes right now.';
+            nextButton.disabled = true;
+            return;
+        }
 
-    
-    //STEP 1 (to create an AJAX request)
-    //this object allows you to make requests and get back data.
-    // In short, this is our data retriever (it calls API)
-    let xhttp = new XMLHttpRequest();
+        recipes = payload;
 
-    //STEP 2 (to create an AJAX request)
-    xhttp.onreadystatechange = function () {
+        if (!recipes.length) {
+            flashCards.innerHTML = 'No recipes found.';
+            nextButton.disabled = true;
+        }
+    } catch (error) {
+        console.error(error);
+        flashCards.innerHTML = 'Unable to load recipes right now.';
+        nextButton.disabled = true;
+    }
+}
 
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            //changing the information into something js can
-            //  understand
-            menu = JSON.parse(xhttp.responseText);
-
-          console.log("Before the image")
-          //document.createElement("img").src = menu.jsonRecipe[0].image;
-          document.getElementById("flashCards").innerHTML = menu.jsonRecipe[index].name;
-
-        console.log("after the image")
-         
-         }
-         if (index == menu.jsonRecipe.length){
-            flashCards.innerHTML="Done!"
-     }
+function showNextCard() {
+    if (!recipes.length) {
+        return;
     }
 
-index++
-
-  //STEP 3 (to create an AJAX request)
-    //create a connection
-    //open(http method, url)
-    xhttp.open("GET", 'https://api.myjson.com/bins/m3zts');
-
-    //STEP 4 (to create an 6AJAX request)
-    //this brings the request process to retrieve information
-    xhttp.send();
-}
-
-
-function ingredients() {
-    document.getElementById("nextButton").removeEventListener("click", ingredients)
-    document.getElementById("nextButton").addEventListener("click", smoothie)    
-
-    
-    //STEP 1 (to create an AJAX request)
-    //this object allows you to make requests and get back data.
-    // In short, this is our data retriever (it calls API)
-    let xhttp = new XMLHttpRequest();
-
-    //STEP 2 (to create an AJAX request)
-    xhttp.onreadystatechange = function () {
-
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            //changing the information into something js can
-            //  understand
-            menu = JSON.parse(xhttp.responseText);
-          console.log("Before the image")
-          //document.createElement("img").src = menu.jsonRecipe[0].image;
-          document.getElementById("flashCards").innerHTML = menu.jsonRecipe[recipeCounter].recipe;
-            console.log("after the image")
-            menu = JSON.parse(xhttp.responseText);
-           
-                 
-            }
-        
-            
+    if (index >= recipes.length) {
+        flashCards.innerHTML = 'Done!';
+        nextButton.disabled = true;
+        return;
     }
 
-recipeCounter++
+    const currentRecipe = recipes[index];
 
-
-
-
-  //STEP 3 (to create an AJAX request)
-    //create a connection
-    //open(http method, url)
-    xhttp.open("GET", 'https://api.myjson.com/bins/m3zts');
-
-    //STEP 4 (to create an AJAX request)
-    //this brings the request process to retrieve information
-    xhttp.send();
+    if (!showingRecipe) {
+        flashCards.innerHTML = currentRecipe.name;
+        showingRecipe = true;
+    } else {
+        flashCards.innerHTML = currentRecipe.recipe;
+        showingRecipe = false;
+        index++;
+    }
 }
 
+async function logout() {
+    try {
+        await fetch('/api/logout', { method: 'POST' });
+    } catch (error) {
+        console.error(error);
+    }
+
+    window.location.href = 'Spark_Login.html';
+}
