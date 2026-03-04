@@ -1,94 +1,69 @@
- .loginclass {  
-  
- line-height: 180%;
- border:2px solid white;
- border-radius: 8px;
- background-color: rgba(128, 128, 128, 0.445);
- float:center;
- width: 300px;
- top:30%;
- left: 37%;
- height: 300px;
- position: absolute;
- font-family: verdana;
- }
- 
- 
- #headid{
-    position: absolute;
-    left:38.5%;
-    text-align: center;
-    color: whitesmoke;
-    font-family: Verdana;
- }
+:root {
+  --spark-overlay: rgba(0, 0, 0, 0.55);
+  --spark-panel: rgba(255, 255, 255, 0.14);
+}
 
- 
- #box {
-    text-align: center;
-    top: 20px;
-    left: 30px;
-    right: 40px;
-    bottom: 60px;
-    padding: 50px;
-    font-size: 18px;
-    font-family: verdana;
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-image: linear-gradient(var(--spark-overlay), var(--spark-overlay)), url('recipe.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: whitesmoke;
+}
 
- 
- }
- 
- .navbar{
-    text-align:  center;
-    color: whitesmoke;
-    font-family: Verdana;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 0;
-    border: none;
-    background: none;
- }
- li {
-    display: inline;
-    text-align: center;
-    color:whitesmoke;
-    padding: 10px;
-    margin: 10px;
- }
- body {
-    
-    background-image: url("recipe.jpg"); 
-    background-repeat: no-repeat;
-    background-size: cover;
-   margin: 0;
-    }
+.app-navbar {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+}
 
- #registerid{
-    text-align: center;
-    padding: 0px;
-    font-family: Verdana;
-    color: whitesmoke;
- }
- #myOnlyDiv{
-    border: 2px solid aliceblue;
-    position: absolute;
-    padding: 40px;
-    top:20%;
-    height: 300px;
-    width: 50%;
-    left: 28%;
-    font-family: Verdana;
-    font-size: 18px;
- }
-#flashCards{
-    border: 2px solid aliceblue;
-    border-radius: 8px;
-    position: relative;
-    padding: 25px;
-    font-family: Verdana;
-    font-size: 18px;
-    top:10%;
-    left:20%;
-    height:190px;
-    width: 55%;
-    text-align: center;
-    
+.app-navbar .nav-link,
+.app-navbar .navbar-brand,
+.app-navbar .navbar-text {
+  color: #f8f9fa !important;
+}
+
+.app-card {
+  background: var(--spark-panel);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  backdrop-filter: blur(5px);
+  color: whitesmoke;
+}
+
+#myOnlyDiv {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+#flashCards {
+  border: 1px solid rgba(240, 248, 255, 0.8);
+  border-radius: 10px;
+  padding: 1.25rem;
+  min-height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+.login-shell {
+  min-height: calc(100vh - 72px);
+}
+
+.loginclass {
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  padding: 2rem;
 }
